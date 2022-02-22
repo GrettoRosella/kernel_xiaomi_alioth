@@ -1,4 +1,4 @@
-// SPDX-License-Identifier: GPL-2.0-only
+ // SPDX-License-Identifier: GPL-2.0-only
 
 /*
  * Copyright (c) 2016-2018, The Linux Foundation. All rights reserved.
@@ -44,7 +44,8 @@ struct hrtimer_info {
 static DEFINE_PER_CPU(struct hrtimer_info, per_cpu_hrtimer);
 
 static DEFINE_PER_CPU(struct timerqueue_head, timer_head) = {
-	.rb_root = RB_ROOT,
+	.head = RB_ROOT,
+	.next = NULL,
 };
 
 static DEFINE_SPINLOCK(event_timer_lock);
